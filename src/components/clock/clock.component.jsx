@@ -8,20 +8,14 @@ const Clock = props => {
 
     const [time, setTime] = useState(timer)
 
-    //console.log(timer)
-
     useEffect(() => {
-        setInterval(() => {
-            setTime(timer -= 1)
-            console.log("hola", timer)
-        }, 1000);
+        setInterval(tick, 1000);
 
-        //return clearInterval(clock)
+        return clearInterval
     }, []);
 
     const tick = () => {
-        setTime(timer -= 1000)
-        console.log("hola")
+        setTime(timer -= 1)
     }
     return (
         <p id="lazy">{`${Math.floor((time / 60) % 60)} : ${time % 60} `}</p>
@@ -29,7 +23,3 @@ const Clock = props => {
 }
 
 export default Clock
-
-
-//const secondsDisplay = Math.floor(seconds % 60)
-    //const minutesDisplay = Math.floor(minutes % 60)

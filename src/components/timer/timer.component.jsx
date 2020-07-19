@@ -11,19 +11,10 @@ const Timer = ({ actualTime }) => {
     useEffect(() => {
         setInterval(() => {
             actualTime -= 1000;
-            //console.log(actualTime)
         }, 1000);
     });
 
     const seconds = actualTime / 1000;
-    const minutes = seconds / 60;
-
-    //const secondsDisplay = Math.floor(seconds % 60)
-    //const minutesDisplay = Math.floor(minutes % 60)
-
-    //console.log("timer: ", actualTime)
-
-
 
     return (
         <div className="timer-group">
