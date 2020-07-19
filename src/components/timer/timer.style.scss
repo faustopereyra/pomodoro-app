@@ -1,0 +1,161 @@
+.timer-group {
+  height: 40rem;
+  margin: 0 auto;
+  margin-top: 10vh;
+  position: relative;
+  width: 40rem;
+}
+
+.timer {
+  border-radius: 50%;
+  height: 10rem;
+  overflow: hidden;
+  position: absolute;
+  width: 10rem;
+}
+
+.timer:after {
+  background: #111;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 8rem;
+  left: 1rem;
+  position: absolute;
+  width: 8rem;
+  top: 1rem;
+}
+
+.timer .hand {
+  float: left;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 50%;
+}
+
+.timer .hand span {
+  border: 5rem solid rgba(0, 255, 255, .4);
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-radius: 50%;
+  display: block;
+  height: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: rotate(225deg);
+  width: 0;
+}
+
+.timer .hand:first-child {
+  transform: rotate(180deg);
+}
+
+.timer .hand span {
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.timer .hand:first-child span {
+  animation-name: spin1;
+}
+
+.timer .hand:last-child span {
+  animation-name: spin2; 
+}
+
+.timer.minute {
+  background: rgba(0, 0, 0, .2);
+  height: 35rem;
+  left: 2.5rem;
+  width: 35rem;
+  top: 2.5rem;
+}
+
+.timer.minute .hand span {
+  //animation-duration: 60s;
+  border-top-color: rgba(0, 255, 255, .4);
+  border-right-color: rgba(0, 255, 255, .4);
+  border-width: 17.5rem;
+}
+
+.timer.minute:after {
+  height: 31rem;
+  left: 2rem;
+  width: 31rem;
+  top: 2rem;
+}
+
+.timer.second {
+  background: rgba(0, 0, 0, .2);
+  height: 30rem;
+  left: 5rem;
+  width: 30rem;
+  top: 5rem;
+}
+
+.timer.second .hand span {
+  animation-duration: 1s;
+  border-top-color: rgba(255, 255, 255, .15);
+  border-right-color: rgba(255, 255, 255, .15);
+  border-width: 15rem;
+}
+
+.timer.second:after {
+  height: 29.6rem;
+  left: 2px;
+  width: 29.6rem;
+  top: 2px;
+}
+
+.face {
+  background: rgba(0, 0, 0, .1);
+  border-radius: 50%;
+  height: 29.6rem;
+  left: 5.2rem;
+  padding: 16.5rem 4rem 0;
+  position: absolute;
+  width: 29.6rem;
+  text-align: center;
+  top: 5.5rem;
+}
+
+.face h2 {
+  font-weight: 300; 
+}
+
+.face p {
+  border-radius: 2rem;
+  font-size: 5.5rem;
+  font-weight: 400;
+  position: absolute;
+  top: 1.7rem;
+  width: 26rem;
+  left: 2rem;
+}
+
+@keyframes spin1 {
+  0% {
+    transform: rotate(225deg);
+  }
+  50% {
+    transform: rotate(225deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
+@keyframes spin2 {
+  0% {
+    transform: rotate(225deg);
+  }
+  50% {
+    transform: rotate(405deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}

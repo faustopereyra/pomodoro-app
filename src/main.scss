@@ -1,0 +1,61 @@
+//variables
+
+$color-blue: #8A9FFF;
+$color-blue-secondary: #7658F6;
+
+$color-red: #FF634D;
+$color-red-secondary: #D83F5A;
+
+$color-green: #56AB2F;
+$color-green-secondary: #A8E063;
+
+$color-white: #fff;
+$color-black: #111;
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+//Media Queries
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media only screen and (max-width: 40em) { @content };    
+    }
+    @if $breakpoint == tab-port {
+        @media only screen and (max-width: 56.25em) { @content };     
+    }
+    @if $breakpoint == tab-land {
+        @media only screen and (max-width: 112.5em) { @content };    
+    }
+    @if $breakpoint == big-desktop {
+        @media only screen and (min-width: 112.5em) { @content };    
+    }
+}
+
+//Base
+  
+html {
+    background: linear-gradient(125deg, $color-blue, $color-blue-secondary);
+    color: $color-white;
+    font-family: 'Rowdies', cursive, sans-serif;
+    height: 100vh;
+
+    font-size: 62.5%;
+    @include respond(tab-land) { 
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port) { 
+        font-size: 45%; 
+    }
+    
+    @include respond(big-desktop) {
+        font-size: 75%; 
+    }
+
+}
