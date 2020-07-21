@@ -6,22 +6,18 @@ import Clock from '../clock/clock.component';
 
 import "./timer.style.scss"
 
-const Timer = ({ actualTime }) => {
+const Timer = ({ actualTime, onPause, time }) => {
 
-    useEffect(() => {
-        setInterval(() => {
-            actualTime -= 1000;
-        }, 1000);
-    });
-
-    const seconds = actualTime / 1000;
+    const animationDuration = {
+        animationDuration: `${onPause ? 0 : actualTime}s`
+    }
 
     return (
         <div className="timer-group">
 
             <div className="timer minute">
-                <div className="hand"><span style={{ animationDuration: `${seconds}s` }} ></span></div>
-                <div className="hand"><span style={{ animationDuration: `${seconds}s` }}></span></div>
+                <div className="hand"><span style={animationDuration} ></span></div>
+                <div className="hand"><span style={animationDuration}></span></div>
             </div>
             <div className="timer second">
                 <div className="hand"><span></span></div>
@@ -29,16 +25,15 @@ const Timer = ({ actualTime }) => {
             </div>
             <div className="face">
                 <h2>Motivational quote</h2>
-                <Clock time={seconds} />
+                <Clock time={time} />
             </div>
         </div >
     );
-
-
 };
 
 const mapStateToProps = state => ({
-    actualTime: state.timer.actualTime
+    actualTime: state.timer.actualTime,
+    onPause: state.timer.onPause
 });
 
 export default connect(mapStateToProps)(Timer);

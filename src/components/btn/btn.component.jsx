@@ -4,8 +4,8 @@ import "./btn.style.scss"
 
 const Btn = props => {
     return (
-        <div className="btn">
-            boton
+        <div className="btn" onClick={props.action}>
+            {props.children}
         </div>
 
     )
