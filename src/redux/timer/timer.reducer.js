@@ -1,8 +1,6 @@
 const INITIAL_STATE = {
-    timerStage: "work",
     onPause: true,
     onWorkTime: true,
-    actualTime: 1500,
     defaultWorkTime: 1500,
     defaultRestTime: 300
 }
@@ -18,11 +16,6 @@ const timerReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 onPause: !state.onPause
-            }
-        case "SET_ACTUAL_TIME":
-            return {
-                ...state,
-                actualTime: action.payload
             }
         default:
             return state;

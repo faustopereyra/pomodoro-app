@@ -1,37 +1,40 @@
 import React from "react";
 
 import { connect } from "react-redux"
-import { togglePause } from "../../redux/timer/timer.actions"
+import { togglePause, toggleStage } from "../../redux/timer/timer.actions"
 
 import Btn from "../btn/btn.component"
 
 import "./controller.style.scss"
 
-const Controller = ({ onWorkTime, onPause, togglePause }) => {
+const Controller = ({ onPause, togglePause, toggleStage, trigger }) => {
 
-    const p = () => {
+    const pauseToggle = () => {
         togglePause()
+    }
+
+    const stageToggle = () => {
+        toggleStage();
+        togglePause()
+        trigger();
     }
 
     return (
         <div className="controller-container">
-            <Btn action={p} > {onPause ? "Start" : "Stop"} </Btn>
-            <Btn action={p} > Skip </Btn>
+            <Btn action={pauseToggle} > {onPause ? "Start" : "Stop"} </Btn>
+            <Btn action={stageToggle} > Skip </Btn>
         </div>
 
     )
 }
 
 const mapStateToProps = state => ({
-    //onWorkTime: state.timer.onWorkTime,
     onPause: state.timer.onPause
 });
 
 const mapDispatchToProps = dispatch => ({
-    //toggleAddNewNote: () => dispatch(toggleAddNewNote()),
-    togglePause: () => dispatch(togglePause())
+    togglePause: () => dispatch(togglePause()),
+    toggleStage: () => dispatch(toggleStage())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Controller);
-
-//<OptionButton onClick={props.toggleAddNewNote} />
