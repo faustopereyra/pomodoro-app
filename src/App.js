@@ -4,8 +4,9 @@ import Pomodoro from './layouts/pomodoro/pomodoro.component';
 
 import "./main.scss"
 
-import './App.css';
+const favicon = document.getElementById("favicon");
 
+//favicon.href = "http://faustopereyra.com/media/images/favicon.ico"
 
 function App() {
     return (

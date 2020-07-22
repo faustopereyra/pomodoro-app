@@ -1,8 +1,21 @@
+@import "../../main.scss";
+
 .controller-container{
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
+  margin: auto;
+  display: grid;
+  //justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 8rem;
   width: 40rem;
-  //border: 3px solid green;
-  padding: 10px;
+  padding: 2rem 0;
+
+  @include respond(phone) { 
+    flex-direction: column;
+    width: 20rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 3rem;
+    
+  }
+
 }

@@ -22,12 +22,12 @@ const Timer = ({ stageChange, onPause, time }) => {
         <div className="timer-group">
 
             <div className="timer minute">
-                <div className={`${onPause ? "" : "hand"}`}><span style={animationDuration} ></span></div>
-                <div className={`${onPause ? "" : "hand"}`}><span style={animationDuration}></span></div>
+                <div className={`${onPause || time === 0 ? "" : "hand"}`}><span style={animationDuration}  ></span></div>
+                <div className={`${onPause || time === 0 ? "" : "hand"}`}><span style={animationDuration}></span></div>
             </div>
             <div className="timer second">
-                <div className={`${onPause ? "" : "hand"}`}><span></span></div>
-                <div className={`${onPause ? "" : "hand"}`}><span></span></div>
+                <div className={`${onPause || time === 0 ? "" : "hand"}`}><span></span></div>
+                <div className={`${onPause || time === 0 ? "" : "hand"}`}><span></span></div>
             </div>
             <div className="face">
                 <h2>Motivational quote</h2>

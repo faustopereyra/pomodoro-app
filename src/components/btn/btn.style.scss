@@ -1,3 +1,5 @@
+@import "../../main.scss";
+
 .btn {
     &,
     &:link,
@@ -6,13 +8,13 @@
         color: rgb(31, 31, 31);
         text-transform: uppercase;
         text-decoration: none;
+        text-align: center;
         padding: 1.5rem 3.5rem;
         display: inline-block;
         border-radius: 10rem;
         transition: all .2s;
         position: relative;
         font-size: 2rem;
-        //font-weight: bold;
 
         border: none;
         cursor: pointer;

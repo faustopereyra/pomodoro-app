@@ -7,25 +7,30 @@ import { connect } from "react-redux"
 import Timer from "../../components/timer/timer.component"
 import Controller from "../../components/controller/controller.component"
 
-const Pomodoro = ({ onWorkTime, onPause, defaultRestTime, defaultWorkTime }) => {
+import { toggleStage } from "../../redux/timer/timer.actions"
+
+import background from "../../functions/background.function"
+
+import "./pomodoro.style.scss"
+
+const Pomodoro = ({ onWorkTime, onPause, defaultRestTime, defaultWorkTime, toggleStage }) => {
 
     const [count, setCount] = useState(defaultWorkTime);
 
     useInterval(() => {
 
         if (count === 0) {
-            if (onWorkTime) {
+            if (!onWorkTime) {
                 setCount(defaultWorkTime)
             }
             else {
                 setCount(defaultRestTime)
             }
+            toggleStage();
         }
         else {
             setCount(count - 1)
         }
-
-
     }, !onPause ? 1000 : null);
 
     const trigger = () => {
@@ -39,12 +44,13 @@ const Pomodoro = ({ onWorkTime, onPause, defaultRestTime, defaultWorkTime }) => 
 
 
     return (
-        <div>
+        <div className="pomodoro" style={onPause ? background.blue : onWorkTime ? background.red : background.green}>
             <Timer time={count} stageChange={count === 0 || onWorkTime} />
             <Controller trigger={trigger} />
         </div>
     )
 }
+
 
 const mapStateToProps = state => ({
     onWorkTime: state.timer.onWorkTime,
@@ -54,5 +60,9 @@ const mapStateToProps = state => ({
 
 });
 
+const mapDispatchToProps = dispatch => ({
+    toggleStage: () => dispatch(toggleStage())
+})
 
-export default connect(mapStateToProps)(Pomodoro);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Pomodoro);

@@ -18,6 +18,8 @@ $color-black: #111;
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 //Media Queries
@@ -40,17 +42,15 @@ $color-black: #111;
 //Base
   
 html {
-    background: linear-gradient(125deg, $color-blue, $color-blue-secondary);
     color: $color-white;
     font-family: 'Rowdies', cursive, sans-serif;
-    height: 100vh;
 
     font-size: 62.5%;
     @include respond(tab-land) { 
         font-size: 56.25%;
     }
 
-    @include respond(tab-port) { 
+    @include respond(phone) { 
         font-size: 45%; 
     }
     
