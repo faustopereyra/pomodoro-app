@@ -4,3 +4,54 @@
     height: 100vh;
     padding-top: 10rem;
 }
+
+.set-up {
+
+    &__button {
+
+        height: 7rem;
+        width: 7rem;
+        position: absolute;
+        top: 6rem;
+        left: 6rem;
+        border-radius: 50%;
+        z-index: 2000;
+        text-align: center;
+        cursor: pointer;
+    }
+
+
+    //ICON
+    &__icon {
+        position: relative;
+        margin-top: 3.5rem;
+
+        &,
+        &::before,
+        &::after {
+            width: 3.5rem;
+            height: 3px;
+            background-color: #000000;
+            display: inline-block;
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: all .2s;
+        }
+
+        &::before { top: -1rem; }
+        &::after { top: 1rem; }
+    }
+
+    &__button:hover &__icon::before {
+        top: -1.5rem;
+    }
+
+    &__button:hover &__icon::after {
+        top: 1.5rem;
+    }
+}

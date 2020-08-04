@@ -13,7 +13,7 @@ import background from "../../functions/background.function"
 
 import "./pomodoro.style.scss"
 
-const Pomodoro = ({ onWorkTime, onPause, defaultRestTime, defaultWorkTime, toggleStage }) => {
+const Pomodoro = ({ onWorkTime, onPause, defaultRestTime, defaultWorkTime, toggleStage, setOption }) => {
 
     const [count, setCount] = useState(defaultWorkTime);
 
@@ -44,10 +44,18 @@ const Pomodoro = ({ onWorkTime, onPause, defaultRestTime, defaultWorkTime, toggl
 
 
     return (
-        <div className="pomodoro" style={onPause ? background.blue : onWorkTime ? background.red : background.green}>
-            <Timer time={count} stageChange={count === 0 || onWorkTime} />
-            <Controller trigger={trigger} />
+        <div style={onPause ? background.blue : onWorkTime ? background.red : background.green}>
+            <div onClick={() => setOption(true)} className="set-up"  >
+                <label className="set-up__button">
+                    <span className="set-up__icon">&nbsp;</span>
+                </label>
+            </div>
+            <div className="pomodoro" >
+                <Timer time={count} stageChange={count === 0 || onWorkTime} />
+                <Controller trigger={trigger} />
+            </div>
         </div>
+
     )
 }
 
