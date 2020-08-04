@@ -1,0 +1,22 @@
+.input-box{
+    display: flex;
+    margin: 4rem 10%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5rem;
+    background: rgba(255, 255, 255, 0.6);
+    border: black 2px solid;
+    border-radius: 1rem;
+    
+    &--text{
+        color: black;
+        font-size: 1.5rem;
+    }
+
+    &--input {
+        border: none;
+        background-color: inherit;
+        width: 7rem;
+        height: 3rem;
+    }
+}

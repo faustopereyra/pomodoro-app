@@ -1,0 +1,33 @@
+.option-bg{
+    background: rgba(0, 0, 0, 0.3);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+
+    &--blur{
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(35px);
+        width: 80vw;
+        height: 80vh;
+        margin: 10vh auto;
+    }
+
+    &--setup{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: 50%;
+        // left: 50%;
+        transform: translateY(-50%);
+        //background-color: black;
+    }
+}
+
+.close{
+    position: absolute;
+    margin: 3rem;
+    cursor: pointer;
+}

@@ -17,6 +17,16 @@ const timerReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 onPause: !state.onPause
             }
+        case "SET_WORK_TIME":
+            return {
+                ...state,
+                defaultWorkTime: action.payload
+            }
+        case "SET_Rest_TIME":
+            return {
+                ...state,
+                defaultRestTime: action.payload
+            }
         default:
             return state;
     }
